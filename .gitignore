@@ -1,0 +1,12 @@
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Nothing is built or installed — three.js, postprocessing and n8ao all load
+# from a CDN via the importmap in index.html, and every texture is generated at
+# runtime. There is no node_modules and no asset pipeline to ignore.
+node_modules/
+*.log

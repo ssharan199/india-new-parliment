@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sansad Bhavan — New Parliament House, New Delhi</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0a09'/><path d='M16 5 L28 27 H4 Z' fill='none' stroke='%23d9a441' stroke-width='2.5' stroke-linejoin='round'/></svg>" />
+<style>
+  :root {
+    --ink: #f3ece0;
+    --dim: #a89e8d;
+    --line: rgba(243, 236, 224, 0.14);
+    --panel: rgba(18, 16, 14, 0.72);
+    --accent: #d9a441;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0a09; }
+  body {
+    font: 13px/1.5 "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  canvas { display: block; }
+
+  /* ---------- loader ---------- */
+  #loader {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 18px; background: #0b0a09;
+    transition: opacity .8s ease;
+  }
+  #loader h1 {
+    margin: 0; font-size: 15px; font-weight: 600; letter-spacing: .38em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  #loader p { margin: 0; color: var(--dim); font-size: 12px; letter-spacing: .06em; }
+  #bar { width: 260px; height: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
+  #bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s ease; }
+  #loader.done { opacity: 0; pointer-events: none; }
+
+  /* ---------- panels ---------- */
+  .panel {
+    position: fixed; z-index: 20;
+    background: var(--panel);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  #hud {
+    top: 16px; left: 16px; width: 244px; padding: 14px 14px 12px;
+    max-height: calc(100vh - 32px); overflow-y: auto;
+  }
+  #hud .title { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+  #hud .sub { font-size: 11px; color: var(--dim); margin-top: 3px; }
+  .group { margin-top: 14px; }
+  .group > label {
+    display: block; font-size: 10px; letter-spacing: .17em;
+    text-transform: uppercase; color: var(--dim); margin-bottom: 6px;
+  }
+  .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  button {
+    font: inherit; font-size: 11.5px; color: var(--ink);
+    background: rgba(255,255,255,.05); border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 8px; cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  button:hover { background: rgba(217,164,65,.16); border-color: rgba(217,164,65,.5); }
+  button.on { background: rgba(217,164,65,.24); border-color: var(--accent); color: #fff; }
+  button.wide { grid-column: 1 / -1; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  .row { display: flex; justify-content: space-between; font-size: 11px; color: var(--dim); }
+
+  /* ---------- texture inspector ---------- */
+  #tex {
+    top: 16px; right: 16px; width: 336px; max-height: calc(100vh - 32px);
+    padding: 12px; overflow-y: auto; display: none;
+  }
+  #tex.open { display: block; }
+  #tex h2 {
+    margin: 0 0 4px; font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  #tex .note { font-size: 11px; color: var(--dim); margin: 0 0 10px; }
+  .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .sw { display: flex; flex-direction: column; gap: 4px; }
+  .sw canvas {
+    width: 100%; aspect-ratio: 1; border-radius: 4px;
+    border: 1px solid var(--line); image-rendering: auto;
+  }
+  .sw span { font-size: 9px; color: var(--dim); line-height: 1.25; }
+
+  /* ---------- caption ---------- */
+  /* Clear of the HUD, which now scrolls to the full window height. */
+  #caption {
+    bottom: 16px; left: 276px; padding: 10px 14px; max-width: 380px;
+  }
+  #caption b { color: var(--accent); font-weight: 600; letter-spacing: .06em; }
+  #caption p { margin: 4px 0 0; color: var(--dim); font-size: 11.5px; }
+
+  #stats {
+    bottom: 16px; right: 16px; padding: 7px 11px;
+    font-variant-numeric: tabular-nums; font-size: 11px; color: var(--dim);
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.14); border-radius: 4px; }
+
+  /* ---------- annotation layer ---------- */
+  #labels { position: fixed; inset: 0; z-index: 15; pointer-events: none; }
+  #leaders { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  #cards, #dots { position: absolute; inset: 0; }
+
+  .lbl-card {
+    position: absolute; top: 0; left: 0; width: 244px;
+    padding: 9px 12px 10px;
+    background: rgba(20, 18, 15, 0.82);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(243, 236, 224, 0.13);
+    border-left: 2px solid var(--accent);
+    border-radius: 4px;
+    pointer-events: auto;
+    transition: background .16s, border-color .16s;
+    will-change: transform;
+  }
+  .lbl-card.clickable { cursor: pointer; }
+  .lbl-card:hover, .lbl-card.hot {
+    background: rgba(34, 28, 20, 0.94);
+    border-color: rgba(217, 164, 65, 0.6);
+  }
+  .lbl-kicker {
+    font-size: 8.5px; letter-spacing: .19em; text-transform: uppercase;
+    color: var(--accent); opacity: .85; margin-bottom: 2px;
+  }
+  .lbl-kicker:empty { display: none; }
+  .lbl-card h3 {
+    margin: 0 0 4px; font-size: 14px; font-weight: 600; letter-spacing: .01em;
+    font-family: Georgia, "Times New Roman", serif; color: #fbf4e8;
+  }
+  .lbl-card p { margin: 0; font-size: 11px; line-height: 1.5; color: #c3b8a6; }
+  .lbl-meta {
+    margin-top: 6px; padding-top: 5px; font-size: 10px; color: #968b78;
+    border-top: 1px solid rgba(243, 236, 224, 0.1);
+  }
+
+  /* Tag accents — chambers gold, doors terracotta, spaces teal. */
+  .lbl-card { --tag: var(--accent); }
+  /* Markers read as hotspots — in hover mode they're the only thing on screen
+     until you point at one, so they have to invite the pointer. */
+  .lbl-dot {
+    position: absolute; top: 0; left: 0; width: 10px; height: 10px;
+    margin: -5px 0 0 -5px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 2px rgba(11,10,9,.8), 0 0 0 5px rgba(217,164,65,.22), 0 0 12px rgba(217,164,65,.5);
+    transition: box-shadow .14s;
+    will-change: transform;
+  }
+  .lbl-dot.tag-door { background: #d97757; box-shadow: 0 0 0 2px rgba(11,10,9,.8), 0 0 0 5px rgba(217,119,87,.22), 0 0 12px rgba(217,119,87,.5); }
+  .lbl-dot.tag-chamber { background: #d9a441; }
+  .lbl-dot.tag-space { background: #6fb3a8; box-shadow: 0 0 0 2px rgba(11,10,9,.8), 0 0 0 5px rgba(111,179,168,.22), 0 0 12px rgba(111,179,168,.5); }
+  .lbl-dot.hot {
+    box-shadow: 0 0 0 3px rgba(11,10,9,.85), 0 0 0 9px rgba(217,164,65,.4), 0 0 20px rgba(217,164,65,.85);
+  }
+
+  .lbl-leader {
+    fill: none; stroke: rgba(217, 164, 65, 0.55); stroke-width: 1.1;
+    stroke-linejoin: round; stroke-linecap: round;
+  }
+  .lbl-leader.tag-door { stroke: rgba(217, 119, 87, 0.55); }
+  .lbl-leader.tag-space { stroke: rgba(111, 179, 168, 0.5); }
+  .lbl-leader.hot { stroke-width: 1.9; stroke-opacity: 1; }
+
+  #labels.dots-only .lbl-card, #labels.dots-only .lbl-leader { display: none !important; }
+
+  /* ---------- script panel ---------- */
+  #script {
+    left: 276px; right: 16px; bottom: 16px; z-index: 22;
+    display: none; padding: 10px 12px 12px;
+  }
+  #script.open { display: block; }
+  body.scripting #caption { display: none; }
+  #script .head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  #script .head h2 {
+    margin: 0; font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--accent); flex: 1;
+  }
+  #script .head .hint { font-size: 10.5px; color: var(--dim); }
+  #beats { max-height: 27vh; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
+  .beat {
+    display: flex; gap: 10px; align-items: baseline; width: 100%;
+    text-align: left; padding: 6px 9px; border: 1px solid transparent;
+    border-radius: 5px; background: transparent; color: #bcb2a2;
+    font: inherit; font-size: 12px; line-height: 1.45; cursor: pointer;
+  }
+  .beat:hover { background: rgba(255,255,255,.05); color: var(--ink); }
+  .beat.on {
+    background: rgba(217,164,65,.16); border-color: rgba(217,164,65,.5);
+    color: #fbf4e8;
+  }
+  .beat-t {
+    flex: none; width: 30px; font-variant-numeric: tabular-nums;
+    font-size: 10px; color: var(--dim);
+  }
+  .beat.on .beat-t { color: var(--accent); }
+  .beat b { color: var(--accent); font-weight: 600; }
+
+  /* Cards occupy the gutters, so pull the fixed chrome out of their way. */
+  body.labelled #caption { display: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chips button { padding: 4px 9px; font-size: 10.5px; }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <h1>Sansad Bhavan</h1>
+  <div id="bar"><i></i></div>
+  <p id="loadmsg">generating textures…</p>
+  <pre id="err" style="display:none;max-width:min(680px,86vw);white-space:pre-wrap;
+       color:#e2795f;font:11px/1.6 ui-monospace,monospace;text-align:left"></pre>
+</div>
+
+<script>
+  // Surface load failures instead of leaving a black screen. The usual cause is
+  // opening index.html straight off disk — ES modules need an http:// origin.
+  (function () {
+    var box = document.getElementById('err');
+    function report(msg) {
+      document.getElementById('loadmsg').textContent = 'could not start';
+      box.style.display = 'block';
+      box.textContent += msg + '\n';
+      if (location.protocol === 'file:') {
+        box.textContent += '\nServe the folder over http instead, e.g.:\n'
+          + '  python -m http.server 8000\nthen open http://localhost:8000/\n';
+      }
+    }
+    addEventListener('error', function (e) {
+      report(e.message ? (e.message + '  @ ' + (e.filename || '') + ':' + (e.lineno || 0))
+                       : 'failed to load ' + (e.target && (e.target.src || e.target.href)));
+    }, true);
+    addEventListener('unhandledrejection', function (e) {
+      report('' + (e.reason && e.reason.stack || e.reason));
+    });
+  })();
+</script>
+
+<div id="labels">
+  <svg id="leaders" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="cards"></div>
+  <div id="dots"></div>
+</div>
+
+<div id="hud" class="panel">
+  <div class="title">New Parliament</div>
+  <div class="sub">Central Vista, New Delhi — procedural build</div>
+
+  <div class="group">
+    <label>Views</label>
+    <div class="btns" id="views"></div>
+  </div>
+
+  <div class="group">
+    <label>Labels</label>
+    <div class="btns">
+      <button id="lblHover">On hover</button>
+      <button id="lblCards">Show all</button>
+      <button id="lblDots">Markers</button>
+      <button id="lblOff">Hide</button>
+    </div>
+    <div class="chips" id="lblTags" style="margin-top:5px"></div>
+  </div>
+
+  <div class="group" id="fxQualityGroup" style="display:none">
+    <label>AO quality</label>
+    <div class="btns" id="aoQuality"></div>
+  </div>
+
+  <div class="group">
+    <label>Display</label>
+    <div class="btns">
+      <button id="btnCut">Cutaway</button>
+      <button id="btnOrbit">Auto-orbit</button>
+      <button id="btnScript" class="wide">Script walkthrough</button>
+      <button id="btnTex" class="wide">Texture inspector</button>
+      <button id="btnShot" class="wide">Save still (PNG)</button>
+    </div>
+  </div>
+
+  <div class="group" id="fxGroup" style="display:none">
+    <label>Realism</label>
+    <div class="btns">
+      <button id="fxAO">Ambient occl.</button>
+      <button id="fxBloom">Bloom</button>
+      <button id="fxSMAA">SMAA</button>
+      <button id="fxHalf">Half-res AO</button>
+      <button id="fxAOOnly" class="wide">Show AO buffer only</button>
+    </div>
+    <input id="aoInt" type="range" min="0" max="8" step="0.1" value="3.2" />
+    <div class="row"><span>AO intensity</span><span id="aoIntVal">3.2</span></div>
+    <input id="aoRad" type="range" min="4" max="90" step="1" value="36" />
+    <div class="row"><span>AO radius</span><span id="aoRadVal">36 px</span></div>
+  </div>
+
+  <div class="group">
+    <label>Sun</label>
+    <input id="sun" type="range" min="-4" max="82" step="0.5" value="34" />
+    <div class="row"><span>elevation</span><span id="sunval">34°</span></div>
+    <input id="azi" type="range" min="0" max="360" step="1" value="146" />
+    <div class="row"><span>azimuth</span><span id="azival">146°</span></div>
+  </div>
+</div>
+
+<div id="tex" class="panel">
+  <h2>Procedural texture set</h2>
+  <p class="note">Every map below is painted into a canvas at load time — albedo,
+     Sobel-derived normal and roughness for each material. Nothing is downloaded.</p>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<div id="script" class="panel">
+  <div class="head">
+    <h2>Script</h2>
+    <span class="hint">click a line to fly there</span>
+    <button id="scriptPlay">▶ Play</button>
+  </div>
+  <div id="beats"></div>
+</div>
+
+<div id="caption" class="panel">
+  <b id="capTitle">Aerial approach</b>
+  <p id="capText">Triangular plan, 200 m to a side. Dholpur beige sandstone piers
+     with jaali screens; red sandstone plinth and cornice.</p>
+</div>
+
+<div id="stats" class="panel">— fps</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/",
+    "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/",
+    "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.39.3/build/index.js",
+    "n8ao": "https://cdn.jsdelivr.net/npm/n8ao@2.0.0/dist/N8AO.js"
+  }
+}
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
