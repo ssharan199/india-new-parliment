@@ -111,3 +111,76 @@ sakti, toh Kolhapur ne exactly kya jeeta?
 - 200+ elephants for company vs zero for 33 years.
 - Radiographs: fractures and arthritis in both front feet.
 - A 25,000-page report, sealed.
+
+---
+
+# Why she was sent back from Vantara
+
+## The official reason
+
+**Treatment complete.** Vantara's position is that her condition was
+**stabilised** through sustained veterinary care, while her chronic conditions
+continue to need supportive management and regular monitoring. The HPC heard the
+parties, called for reports, inspected the Nandani facility, and on **9 Sep 2026**
+passed a reasoned order permitting the return under conditions. Vantara said it
+would comply, that the original move was court-directed and not its idea, that
+it never sought custody of her, and that it would send vets fortnightly.
+
+Note what that reason does not say. It does not say she was cured.
+
+## The actual driver: a consumer boycott that became a political order
+
+1. **30 Jul 2025** She reaches Vantara under Supreme Court order.
+2. **Within days** #BoycottJio begins, led by former MP **Raju Shetti**. Over
+   **150,000 numbers** ported out of Jio across Kolhapur, Sangli and Satara in
+   **four days**. A local store hands out a free elephant mug to anyone switching.
+3. **The Wire's headline**: "Rattled by Protests Over Relocation of Elephant
+   Madhuri, CM Fadnavis Meets Vantara Representatives."
+4. **Fadnavis announces Maharashtra will file a review petition in the Supreme
+   Court** to bring her back. Vantara publicly agrees to **join the state's
+   petition**, saying it acts only on Supreme Court orders and has "no intention
+   to grab custody". So the party that won the case volunteers to help reverse
+   its own win.
+5. Vantara offers to **build a satellite rehabilitation centre** near Nandani on
+   a site chosen by the Maharashtra Forest Department. The HPC directs that all
+   statutory clearances, land use, environmental and wildlife, be completed in
+   **20 days**.
+6. **June 2026** The Math formally applies to the HPC to take her back.
+7. **9 Sep 2026** The HPC permits it.
+8. **11 Sep 2026** She arrives, **in the existing Math shed**. The new
+   rehabilitation centre was never built. Vantara's stated reason: town planning
+   constraints, because a road through the Trust's land limits the developable
+   area.
+
+So the causal chain is boycott, then state political intervention, then the
+winning litigant switching sides, then clearance. Not a medical discharge.
+
+## The contested part, attributed
+
+**PETA India's account, which I could not corroborate in wire coverage and which
+comes from an interested party:** when the Math applied in June, the HPC sent a
+sub-committee that inspected on **9 Aug 2026** and flagged **unsafe water, no
+specialised veterinary care, no proper path for walking, and insufficient
+socialisation**, concluding the shed is **not fit for her long-term management**.
+PETA further alleges Vantara actively pressed for the return, and headlines its
+post "Vantara Influences High-Powered Committee to Send Her Back to Be Chained in
+the Same Shed That Broke Her."
+
+The HPC order is not public. Treat the sub-committee findings as PETA's claim
+until the order or the report surfaces. If true, it means the HPC's own
+inspectors failed the facility one month before the HPC cleared it.
+
+## The one line that holds all of it
+
+Between July 2025 and September 2026, her medical file did not reverse and the
+promised new facility did not get built. The only variable that changed was
+public and political pressure.
+
+## The irony to close the reel on
+
+The Math went to the Bombay High Court under **Article 25**, freedom of religion,
+arguing she was central to its religious practice. It lost. Then it won her back
+politically. And the order that returned her **bans her from processions or any
+other use**.
+
+The Math got the elephant back and lost the reason it wanted her.
