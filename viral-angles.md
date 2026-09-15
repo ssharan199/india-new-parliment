@@ -135,3 +135,199 @@ possible way to show the thing at all.
 
 If the goal is repeating a proven win: **4 (Jamnagar)**, because your audience
 already told you they care about Ambani at a 3.00% like rate.
+
+---
+
+# Batch 2: refilling the four proven buckets
+
+The five that worked (Antilia, Vantara, movie screen types, Icon of the Seas,
+Coober Pedy) are four repeatable shapes, not five one-offs:
+
+- **A. Rich people's impossible property.** One insanely expensive private thing,
+  opened up.
+- **B. The thing you have experienced but never understood.** A comparison of
+  tiers the viewer has personally sat in.
+- **C. World's biggest machine.** Scale of one vehicle.
+- **D. A whole town living wrong.** Humans surviving where they should not.
+
+Plus one new bucket the account has not touched:
+
+- **E. The place nobody is allowed to see.** Only a render can show it, which is
+  the strongest possible version of your edge.
+
+Verify every figure before publish.
+
+---
+
+## E. The place nobody is allowed to see
+
+### E1. Padmanabhaswamy Temple, Vault B
+**Question:** Kerala ke ek mandir mein ek darwaza hai jo aaj tak khola nahi gaya.
+Andar kya hai?
+**Money shot:** Render the vault complex under the temple. Vaults A to F. A was
+opened and inventoried. **B has never been opened.** Show the sealed door, the
+two cobras carved on it, and the empty space behind it that nobody has ever
+photographed, because nobody has ever seen it.
+**Why it is the best topic on this list:** Extreme, real, one question, and the
+payoff is literally unfilmable. Zero setup in India.
+**Care:** The valuation figures floating around (lakhs of crores, tens of
+billions of dollars) are **speculative estimates, not inventories**. Say
+"estimates vary wildly and nobody knows" and you will be more credible than
+every other video on this subject.
+
+### E2. India's gold, and where it actually sits
+Covered in batch 1, angle 3. Same bucket.
+
+### E3. Inside Tirupati's treasury
+**Question:** Tirupati ko har saal kitna sona milta hai, aur woh jaata kahan hai?
+**Money shot:** Annual hundi collection rendered as volume, then the vault, then
+the deposits with banks and RBI.
+
+---
+
+## A. Rich people's impossible property
+
+### A1. Jamnagar refinery
+Covered in batch 1, angle 4. The proven Ambani entity.
+
+### A2. Jai Vilas Palace, Gwalior
+**Question:** Chhat itni mazboot hai ya nahi, ye check karne ke liye unhone
+chhat par **haathi** chadha diye. Kyun?
+**Money shot:** Ten elephants walked onto the roof to test whether it could hold
+two chandeliers of roughly 3.5 tonnes each. Render the load test. Then the
+**silver toy train** that ran along the dining table serving drinks to guests.
+**Why it fits:** Antilia energy, but Indian royal, and the elephant load test is
+a single image that explains itself.
+
+### A3. The Nizam of Hyderabad
+**Question:** Duniya ka sabse ameer aadmi Hyderabad mein rehta tha. Uska heera
+paperweight tha.
+**Money shot:** The Jacob Diamond at true scale in a hand, then the wealth
+rendered as physical volume against a modern billionaire's.
+
+### A4. Antilia vs Buckingham Palace vs the White House
+**Question:** Kis ka ghar bada hai?
+**Money shot:** All three at true scale in one frame, floor area and floor count
+side by side. Pure comparison format, and it reuses your Antilia model.
+
+---
+
+## B. The thing you have experienced but never understood
+
+This is your most underused bucket and it contains your highest-ceiling topic.
+
+### B1. Economy vs Premium Economy vs Business vs First vs private jet
+**Question:** Same plane, same flight. Aapke paise exactly kya kharidte hain?
+**Money shot:** One aircraft cutaway. Highlight the actual floor area per
+passenger in each class, as a number. Then the ceiling: a first class suite with
+a **shower**, and a three-room suite with a butler. Then the private jet, where
+the ratio collapses.
+**Why this may be your single best topic:** Everyone in your audience has sat in
+economy and wondered. It is one cutaway of one object, which is exactly your
+3%-like-rate formula, and the class comparison is your 0.44%-share-rate formula.
+Both proven patterns in one reel.
+
+### B2. Indian Railways, class by class
+**Question:** General se 1AC tak, aapko actually kitni jagah milti hai?
+**Money shot:** One coach shell, rendered six times: General, Sleeper, 3AC, 2AC,
+1AC, Vande Bharat chair car. Square feet per passenger on screen each time. Then
+Palace on Wheels as the punchline.
+**Why it fits:** Maximum zero setup in India. Every viewer has personally been
+in at least two of these.
+
+### B3. Dolby Atmos vs normal sound
+**Question:** Atmos mein aisa kya hai jo normal speaker nahi kar sakta?
+**Money shot:** Render sound as objects moving in 3D space around a seated
+viewer, versus sound stuck in two channels. Pairs directly with your IMAX reel,
+which already worked at 367K.
+
+### B4. Petrol vs diesel vs CNG vs EV
+**Question:** Aapki gaadi ke andar, ignition ke baad, exactly kya hota hai?
+**Money shot:** Four engine cutaways, same camera, same cycle, slowed down.
+
+### B5. What your phone screen actually is
+**Question:** LCD, OLED, AMOLED. Zoom in enough and they are completely
+different machines.
+**Money shot:** Zoom from a full screen down to the subpixel level on each type,
+one continuous move.
+
+---
+
+## C. World's biggest machine
+
+### C1. The size lineup
+**Question:** Icon of the Seas kis kis se bada hai?
+**Money shot:** Titanic, INS Vikrant, the largest container ship, and Icon of the
+Seas, all in one frame at true scale, with a cricket stadium for reference. This
+is the direct sequel to your 7M reel and reuses that model.
+
+### C2. BelAZ 75710
+**Question:** Ek truck jo **450 tonne** utha sakta hai. Uska tyre aapse teen
+guna bada hai.
+**Money shot:** A human, a car, and one tyre, side by side. Then the truck.
+
+### C3. Gevra, Chhattisgarh
+**Question:** India ki sabse badi coal mine se zameen kaise gayab ho jaati hai?
+**Money shot:** The pit rendered as a negative volume, with a city dropped into
+it for scale.
+
+### C4. LVM3 vs Falcon Heavy vs Starship
+**Question:** ISRO ka sabse bada rocket, duniya ke sabse bade rockets ke saamne
+kahan khada hai?
+**Money shot:** The rocket lineup at true scale, payload to orbit as a number
+under each.
+
+---
+
+## D. A whole town living wrong
+
+### D1. Kumbh Mela
+**Question:** Ek khaali maidan par, chhe hafte mein, karodon logon ka shehar
+kaise khada ho jaata hai, aur phir gayab ho jaata hai?
+**Money shot:** Time lapse render on the bare floodplain: sectors appear,
+pontoon bridges float across the river, power lines and water lines thread in,
+the city fills, then the whole thing is dismantled and the river takes the land
+back.
+**Why it fits:** This is Coober Pedy's bucket at ten times the scale, and it is
+entirely Indian. Possibly your best topic in this bucket.
+
+### D2. Kowloon Walled City
+**Question:** 6 acre zameen par 33,000 log. Suraj ki roshni andar pahunchti hi
+nahi thi.
+**Money shot:** The famous cross-section, but in 3D and navigable. Camera flies
+in through the alleys, up through the illegal staircases, out onto the roof of
+TV antennas. Demolished in the 1990s, so **only a render can show it**.
+
+### D3. Whittier, Alaska
+**Question:** Ek poora shehar, ek hi building ke andar. School, church, police,
+sab.
+**Money shot:** One 14-storey building cutaway, with every civic function
+labelled inside it. Coober Pedy's exact sibling, and your Coober Pedy reel did
+619K.
+
+### D4. Venice
+**Question:** Ek poora shehar paani par khada hai. Neeche kya hai?
+**Money shot:** Cut below the waterline to the wooden piles driven into the mud
+that have held the city up for centuries and hardened instead of rotting.
+
+### D5. Siachen
+**Question:** 20,000 feet par, minus 50 degree mein, soldier kaise rehta hai?
+**Money shot:** The post cutaway: the fibreglass igloo, the kerosene, the oxygen,
+what water costs to make, what a chapati costs to deliver there.
+**Why it fits:** India, defence, extreme, and aimed straight at your 13 to 34
+male audience.
+
+### D6. Mawsynram
+**Question:** Duniya ki sabse zyada baarish wali jagah. Ghar kaise banate hain?
+**Money shot:** The house construction rendered for that rainfall: the roof
+angles, the grass thatch, the living root bridges.
+
+---
+
+## Do these five first
+
+1. **Padmanabhaswamy Vault B.** Highest curiosity on the list, and unfilmable.
+2. **Flight classes cutaway.** Both your proven formats in one reel.
+3. **Kumbh Mela city.** Coober Pedy's bucket, Indian, ten times the scale.
+4. **Railways class by class.** Zero setup, universal, cheap to build.
+5. **Kowloon Walled City.** The single most render-dependent subject available.
